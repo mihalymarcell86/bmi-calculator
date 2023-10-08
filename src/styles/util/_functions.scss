@@ -1,0 +1,123 @@
+@use "sass:math";
+@use "variables" as *;
+
+@function color($colorName) {
+  @return map-get($colors, $colorName);
+}
+
+// Reset
+@mixin setup {
+  :root {
+    font-size: math.div($REM, 16) * 1em;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  img {
+    max-width: 100%;
+  }
+}
+
+$units: 1cm, 1mm, 1Q, 1in, 1pc, 1pt, 1px, 1em, 1ex, 1ch, 1rem, 1vw, 1vh, 1vmin,
+  1vmax, 1%;
+
+//Unit conversion table (unit | px)
+$unit-table: (
+  px: 1,
+  in: 96,
+  pc: 16,
+  pt: math.div(96, 72),
+  cm: 37.8,
+  mm: 3.78,
+  Q: math.div(37.8, 40),
+  rem: $REM,
+);
+
+// Unit conversion
+
+@function strip-unit($value) {
+  @if unitless($value) {
+    @return $value;
+  }
+  @each $unit in $units {
+    @if unit($value) == unit($unit) {
+      @return math.div($value, $unit);
+    }
+  }
+  @error "Invalid unit!";
+  @return null;
+}
+
+@function convertUnit($value, $to) {
+  $thisUnit: unit($value);
+  @if $thisUnit == em {
+    @error "Conversion not supported!";
+    @return $value;
+  }
+  @if $thisUnit == $to {
+    @return $value;
+  }
+  $inpx: strip-unit($value) * map-get($unit-table, $thisUnit);
+  $converted: math.div($inpx, map-get($unit-table, $to));
+  @each $unit in $units {
+    //convert string to number
+    @if unit($unit) == $to {
+      $to: $unit;
+    }
+  }
+  @if type-of($to) != number {
+    @error "Ivalid unit! Conversion failed.";
+    @return $value;
+  }
+  @return $converted * $to;
+}
+
+@function rem($px) {
+  @return convertUnit($px, rem);
+}
+
+@function em($value, $context) {
+  @if unit($value) == em or unit($context) == em {
+    @error "Ivalid unit! Conversion failed.";
+    @return $value;
+  }
+  @if unit($value) != px {
+    $value: convertUnit($value, px);
+  }
+  @if unit($context) != px {
+    $context: convertUnit($context, px);
+  }
+  @return math.div($value, $context) * 1em;
+}
+
+//Font setter
+@mixin setFont($font-size, $line-height, $font-weight: false) {
+  @if unit($font-size) == "px" {
+    font-size: rem($font-size);
+  } @else if unit($font-size) == "rem" {
+    font-size: $font-size;
+  } @else {
+    @error "Invalid unit!";
+  }
+
+  @if unitless($line-height) {
+    line-height: math.div(
+      $line-height,
+      strip-unit(convertUnit($font-size, px))
+    );
+  } @else if unit($line-height) == "px" {
+    line-height: math.div($line-height, convertUnit($font-size, px));
+  } @else {
+    @error "Invalid unit!";
+  }
+
+  @if $font-weight {
+    font-weight: $font-weight;
+  }
+}

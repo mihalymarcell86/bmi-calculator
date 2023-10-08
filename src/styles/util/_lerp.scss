@@ -1,0 +1,52 @@
+@use "variables" as *;
+@use "functions" as *;
+@use "sass:math";
+
+@function lerp($x1, $y1, $x2, $y2, $height: false) {
+  //calculates fluid dimensions relative to viewport width
+  //(x1, x2) - viewport widths or heights || (y1, y2) - corresponding values
+
+  $unit: px !default;
+  @if unit($y1) != unit($y2) or unit($x1) != unit($x2) {
+    @error "Units have to match!";
+  }
+
+  $unit: unit($y1);
+
+  $y1: strip-unit($y1);
+  $y2: strip-unit($y2);
+  $x1: strip-unit($x1);
+  $x2: strip-unit($x2);
+
+  $divisor: 1;
+  @if $unit == rem {
+    $divisor: $REM;
+  }
+  $m: math.div(($y2 - $y1), math.div(($x2 - $x1), $divisor));
+  $y-intercept: $y1 - $m * math.div($x1, $divisor);
+
+  @if ($height == false) {
+    @return calc(#{$m} * 100vw + #{calc($y-intercept)}#{$unit});
+  } @else {
+    @return calc(#{$m} * 100vh + #{calc($y-intercept)}#{$unit});
+  }
+}
+
+@function lerp_max($x1, $y1, $x2, $y2) {
+  //set a lower bound to the function
+  @return max(math.min($y1, $y2), lerp($x1, $y1, $x2, $y2));
+}
+
+@function lerp_min($x1, $y1, $x2, $y2) {
+  //sets an upper bound to the function
+  @return min(math.max($y1, $y2), lerp($x1, $y1, $x2, $y2));
+}
+
+@function lerp_clamp($x1, $y1, $x2, $y2) {
+  //sets a lower and upper bound to the function
+  @return clamp(
+    math.min($y1, $y2),
+    lerp($x1, $y1, $x2, $y2),
+    math.max($y1, $y2)
+  );
+}

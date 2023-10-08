@@ -1,0 +1,27 @@
+@use "util/global" as *;
+
+@include setup;
+
+@supports (font-variation-settings: normal) {
+  @font-face {
+    font-family: Inter;
+    src: url("../assets/fonts/Inter-VariableFont_slnt\,wght.ttf");
+    font-weight: 400 600;
+  }
+}
+
+@font-face {
+  font-family: Inter;
+  src: url("../assets/fonts/static/Inter-Regular.ttf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: Inter;
+  src: url("../assets/fonts/static/Inter-SemiBold.ttf");
+  font-weight: 600;
+}
+
+body {
+  font-family: Inter, sans-serif;
+}
