@@ -1,0 +1,99 @@
+@use "util/global" as *;
+
+.container {
+  background-color: var(--form-bg);
+  margin: 0 rem(24px) rem(72px);
+  padding: rem(24px);
+  border-radius: rem(16px);
+  box-shadow: 16px 32px 56px 0px var(--box-shadow);
+}
+
+.form {
+  margin-bottom: rem(8px);
+}
+
+.heading {
+  margin-bottom: rem(24px);
+}
+
+.radio-group {
+  display: flex;
+  gap: rem(24px);
+  margin-bottom: rem(24px);
+  color: var(--heading);
+}
+
+.radio {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: rem(18px);
+}
+
+input[type="radio"] {
+  appearance: none;
+  width: rem(31px);
+  aspect-ratio: 1 / 1;
+  border: 1px solid #d8e2e7;
+  border-radius: 50%;
+  &:checked {
+    border: 8px solid var(--radio-border);
+    background-color: var(--radio-bg);
+    transition: all 0.5s ease;
+  }
+}
+
+.input-label {
+  display: block;
+  color: var(--input-label);
+  margin-bottom: rem(8px);
+}
+
+.input-group {
+  display: flex;
+}
+
+.input-wrapper {
+  border: 1px solid var(--input-border);
+  border-radius: rem(12px);
+  width: 100%;
+  padding: rem(20px) rem(24px);
+  margin-bottom: rem(16px);
+  display: flex;
+  gap: rem(24px);
+  &:focus-within {
+    border-color: var(--input-border-active);
+  }
+}
+
+input[type="number"] {
+  appearance: textfield;
+  border: none;
+  min-width: 0;
+  color: var(--input-text);
+  &::placeholder {
+    color: var(--input-placeholder);
+  }
+  &:focus,
+  &:active {
+    outline: none;
+  }
+}
+
+.input-unit {
+  color: var(--input-unit);
+}
+
+.result {
+  color: var(--result-text);
+  background-image: $result-bg-gradient;
+  padding: rem(32px);
+  border-radius: rem(16px);
+  display: flex;
+  flex-direction: column;
+  gap: rem(24px);
+}
+
+.result-paragraph {
+  margin-bottom: rem(8px);
+}

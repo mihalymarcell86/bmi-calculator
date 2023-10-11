@@ -1,0 +1,87 @@
+@use "util/global" as *;
+
+.header {
+  padding: rem(32px) rem(24px) rem(217px);
+  margin-bottom: rem(-169px);
+  --bg-opacity: 1;
+  background-image: $bg-gradient;
+  border-radius: 0 0 rem(35px) rem(35px);
+  text-align: center;
+}
+
+.header-logo {
+  width: rem(40px);
+  aspect-ratio: 1 / 1;
+  margin: 0 auto rem(24px);
+}
+
+.header-heading {
+  margin-bottom: rem(24px);
+}
+
+.image {
+  margin-bottom: rem(48px);
+}
+
+.section-meaning {
+  margin: 0 rem(24px) rem(71.61px);
+}
+
+.subheading {
+  margin-bottom: rem(32px);
+}
+
+.section-factors {
+  padding: rem(56px) rem(28.96px) rem(56px) rem(19.04px);
+  margin-bottom: rem(72px);
+  --bg-opacity: 0.25;
+  background-image: $bg-gradient;
+  display: flex;
+  flex-direction: column;
+  gap: rem(40px);
+}
+
+.factor {
+  img {
+    width: rem(64px);
+    aspect-ratio: 1 / 1;
+    margin-bottom: rem(32px);
+  }
+
+  h3 {
+    margin-bottom: rem(24px);
+  }
+}
+
+.section-limitations {
+  margin-inline: rem(19px) rem(29px);
+}
+
+.limitations-intro {
+  text-align: center;
+  margin-bottom: rem(56px);
+}
+
+.limitations-list {
+  display: flex;
+  flex-direction: column;
+  gap: rem(16px);
+}
+
+.limitation-card {
+  box-shadow: 16px 32px 56px 0px var(--box-shadow);
+  border-radius: rem(16px);
+  padding: rem(24px);
+
+  img {
+    width: rem(32px);
+    aspect-ratio: 1 / 1;
+  }
+
+  div {
+    display: flex;
+    align-items: center;
+    gap: rem(16px);
+    margin-bottom: rem(16px);
+  }
+}

@@ -1,4 +1,5 @@
 @use "util/global" as *;
+@use "sass:color";
 
 @include setup;
 
@@ -24,4 +25,75 @@
 
 body {
   font-family: Inter, sans-serif;
+  color: var(--text);
+  padding-bottom: rem(96px);
+}
+
+//Typography
+
+h1,
+h2,
+h3 {
+  font-weight: 600;
+  color: var(--heading);
+}
+
+.heading-xl {
+  font-size: rem(48px);
+  letter-spacing: rem(-2.4px);
+  line-height: 1.1;
+}
+
+.heading-l {
+  font-size: rem(32px);
+  letter-spacing: rem(-1.6px);
+  line-height: 1.1;
+}
+
+.heading-m {
+  font-size: rem(24px);
+  letter-spacing: rem(-1.2px);
+}
+
+.heading-s {
+  font-size: rem(20px);
+  letter-spacing: rem(-1px);
+}
+
+%text {
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.text-m {
+  font-size: rem(16px);
+  @extend %text;
+}
+
+.text-s {
+  font-size: rem(14px);
+  @extend %text;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+//Colors
+
+html {
+  --bg-gradient: #{$bg-gradient};
+  --heading: #{$gunmetal};
+  --text: #{$dark-electric-blue};
+  --form-bg: #{$white};
+  --radio-border: #{$lavender};
+  --radio-bg: #{$ultramarine-blue};
+  --input-label: #{$dark-electric-blue};
+  --input-border: #{$gainsboro};
+  --input-border-active: #{$ultramarine-blue};
+  --input-placeholder: #{color.change($gunmetal, $alpha: 0.25)};
+  --input-text: #{$gunmetal};
+  --input-unit: #{$ultramarine-blue};
+  --box-shadow: #{$ceil};
+  --result-text: #{$white};
 }
