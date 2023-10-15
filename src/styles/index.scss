@@ -85,9 +85,11 @@ html {
   --bg-gradient: #{$bg-gradient};
   --heading: #{$gunmetal};
   --text: #{$dark-electric-blue};
-  --form-bg: #{$white};
-  --radio-border: #{$lavender};
-  --radio-bg: #{$ultramarine-blue};
+  --card-bg: #{$white};
+  --radio-border: #{$gainsboro};
+  --radio-border-hover: #{$ultramarine-blue};
+  --radio-border-checked: #{$lavender};
+  --radio-bg-checked: #{$ultramarine-blue};
   --input-label: #{$dark-electric-blue};
   --input-border: #{$gainsboro};
   --input-border-active: #{$ultramarine-blue};

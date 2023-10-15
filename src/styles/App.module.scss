@@ -7,24 +7,54 @@
   background-image: $bg-gradient;
   border-radius: 0 0 rem(35px) rem(35px);
   text-align: center;
+  @media (min-width: $bp-t) {
+    padding: rem(32px) rem(43px) rem(326px);
+    margin-bottom: rem(-286px);
+  }
 }
 
 .header-logo {
   width: rem(40px);
   aspect-ratio: 1 / 1;
   margin: 0 auto rem(24px);
+  @media (min-width: $bp-t) {
+    margin-bottom: rem(40px);
+  }
 }
 
 .header-heading {
-  margin-bottom: rem(24px);
+  margin: 0 auto rem(24px);
+  max-width: rem(325px);
+}
+
+.block-meaning {
+  margin-bottom: rem(71.61px);
+  @media (min-width: $bp-t) {
+    display: flex;
+    align-items: center;
+    gap: rem(75px);
+    margin-bottom: rem(96px);
+  }
 }
 
 .image {
   margin-bottom: rem(48px);
+  @media (min-width: $bp-t) {
+    width: rem(319px);
+    height: rem(411px);
+    margin: 0;
+    left: rem(-42px);
+    object-fit: cover;
+    object-position: right;
+    //image to be edited and replaced
+  }
 }
 
 .section-meaning {
-  margin: 0 rem(24px) rem(71.61px);
+  margin-inline: rem(24px);
+  @media (min-width: $bp-t) {
+    margin-inline: 0 rem(43px);
+  }
 }
 
 .subheading {
@@ -39,6 +69,10 @@
   display: flex;
   flex-direction: column;
   gap: rem(40px);
+  @media (min-width: $bp-t) {
+    padding: rem(60px) rem(43px) rem(60px) rem(39px);
+    margin-bottom: rem(96px);
+  }
 }
 
 .factor {
@@ -46,15 +80,26 @@
     width: rem(64px);
     aspect-ratio: 1 / 1;
     margin-bottom: rem(32px);
+    @media (min-width: $bp-t) {
+      margin: 0;
+    }
   }
 
   h3 {
     margin-bottom: rem(24px);
   }
+  @media (min-width: $bp-t) {
+    display: flex;
+    gap: rem(40px);
+    align-items: center;
+  }
 }
 
 .section-limitations {
   margin-inline: rem(19px) rem(29px);
+  @media (min-width: $bp-t) {
+    margin-inline: rem(39px) rem(43px);
+  }
 }
 
 .limitations-intro {
@@ -66,9 +111,17 @@
   display: flex;
   flex-direction: column;
   gap: rem(16px);
+  @media (min-width: $bp-t) {
+    column-gap: rem(15px);
+    row-gap: rem(24px);
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
 
 .limitation-card {
+  background-color: var(--card-bg);
   box-shadow: 16px 32px 56px 0px var(--box-shadow);
   border-radius: rem(16px);
   padding: rem(24px);
@@ -83,5 +136,10 @@
     align-items: center;
     gap: rem(16px);
     margin-bottom: rem(16px);
+  }
+
+  @media (min-width: $bp-t) {
+    padding: rem(32px);
+    max-width: rem(335.5px);
   }
 }

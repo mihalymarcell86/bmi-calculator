@@ -30,7 +30,7 @@ function App() {
       </header>
       <main>
         <Form />
-        <div>
+        <div className={style[`block-meaning`]}>
           <img src={image} alt="a man eating sushi" className={style.image} />
           <section className={style["section-meaning"]}>
             <h2 className={`heading-l bold ${style.subheading}`}>
@@ -50,27 +50,33 @@ function App() {
         <section className={style["section-factors"]}>
           <div className={style.factor}>
             <img src={icon_eating} alt="" />
-            <h3 className="heading-m">Healthy eating</h3>
-            <p className="text-m">
-              Healthy eating promotes weight control, disease prevention, better
-              digestion, immunity, mental clarity, and mood.
-            </p>
+            <div>
+              <h3 className="heading-m">Healthy eating</h3>
+              <p className="text-m">
+                Healthy eating promotes weight control, disease prevention,
+                better digestion, immunity, mental clarity, and mood.
+              </p>
+            </div>
           </div>
           <div className={style.factor}>
             <img src={icon_exercise} alt="" />
-            <h3 className="heading-m">Regular exercise</h3>
-            <p className="text-m">
-              Exercise improves fitness, aids weight control, elevates mood, and
-              reduces disease risk, fostering wellness and longevity.
-            </p>
+            <div>
+              <h3 className="heading-m">Regular exercise</h3>
+              <p className="text-m">
+                Exercise improves fitness, aids weight control, elevates mood,
+                and reduces disease risk, fostering wellness and longevity.
+              </p>
+            </div>
           </div>
           <div className={style.factor}>
             <img src={icon_sleep} alt="" />
-            <h3 className="heading-m">Adequate sleep</h3>
-            <p className="text-m">
-              Sleep enhances mental clarity, emotional stability, and physical
-              wellness, promoting overall restoration and rejuvenation.
-            </p>
+            <div>
+              <h3 className="heading-m">Adequate sleep</h3>
+              <p className="text-m">
+                Sleep enhances mental clarity, emotional stability, and physical
+                wellness, promoting overall restoration and rejuvenation.
+              </p>
+            </div>
           </div>
         </section>
         <section className={style["section-limitations"]}>

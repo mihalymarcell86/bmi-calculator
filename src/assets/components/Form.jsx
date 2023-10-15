@@ -19,40 +19,48 @@ export default function Form() {
             </label>
           </div>
         </div>
-        <div>
-          <label htmlFor="height" className={`text-s ${style[`input-label`]}`}>
-            Height
-          </label>
-          <div className={style["input-group"]}>
-            <div className={style["input-wrapper"]}>
-              <input
-                type="number"
-                id="height"
-                inputMode="numeric"
-                placeholder="0"
-                className="heading-m bold"
-              />
-              <p className={`heading-m bold ${style["input-unit"]}`}>cm</p>
+        <div className={style["input-group"]}>
+          <div>
+            <label
+              htmlFor="height"
+              className={`text-s ${style[`input-label`]}`}
+            >
+              Height
+            </label>
+            <div className={style["imperial-group"]}>
+              <div className={style["nr-input"]}>
+                <input
+                  type="number"
+                  id="height"
+                  inputMode="numeric"
+                  placeholder="0"
+                  className="heading-m bold"
+                />
+                <p className="heading-m bold">cm</p>
+              </div>
+              {/* second input field (conditional)*/}
             </div>
-            {/* second input field (conditional)*/}
           </div>
-        </div>
-        <div>
-          <label htmlFor="weight" className={`text-s ${style[`input-label`]}`}>
-            Weight
-          </label>
-          <div className={style["input-group"]}>
-            <div className={style["input-wrapper"]}>
-              <input
-                type="number"
-                id="weight"
-                inputMode="numeric"
-                placeholder="0"
-                className="heading-m bold"
-              />
-              <p className={`heading-m bold ${style["input-unit"]}`}>kg</p>
+          <div>
+            <label
+              htmlFor="weight"
+              className={`text-s ${style[`input-label`]}`}
+            >
+              Weight
+            </label>
+            <div className={style["imperial-group"]}>
+              <div className={style["nr-input"]}>
+                <input
+                  type="number"
+                  id="weight"
+                  inputMode="numeric"
+                  placeholder="0"
+                  className="heading-m bold"
+                />
+                <p className="heading-m bold">kg</p>
+              </div>
+              {/* second input field (conditional)*/}
             </div>
-            {/* second input field (conditional)*/}
           </div>
         </div>
       </form>
@@ -70,7 +78,7 @@ export default function Form() {
           </output>
         </div>
         <div>
-          <p className="text-s">
+          <p className={`text-s ${style[`result-evaluation`]}`}>
             Your BMI suggests you&apos;re a healthy weight
             {/* <!-- add classification -->*/}. Your ideal weight is between{" "}
             <strong className="bold">

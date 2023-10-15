@@ -1,19 +1,29 @@
 @use "util/global" as *;
 
 .container {
-  background-color: var(--form-bg);
+  background-color: var(--card-bg);
   margin: 0 rem(24px) rem(72px);
   padding: rem(24px);
   border-radius: rem(16px);
   box-shadow: 16px 32px 56px 0px var(--box-shadow);
+  @media (min-width: $bp-t) {
+    margin: 0 rem(39px) rem(96px);
+    padding: rem(32px);
+  }
 }
 
 .form {
-  margin-bottom: rem(8px);
+  margin-bottom: rem(24px);
+  @media (min-width: $bp-t) {
+    margin-bottom: rem(32px);
+  }
 }
 
 .heading {
   margin-bottom: rem(24px);
+  @media (min-width: $bp-t) {
+    margin-bottom: rem(32px);
+  }
 }
 
 .radio-group {
@@ -21,6 +31,9 @@
   gap: rem(24px);
   margin-bottom: rem(24px);
   color: var(--heading);
+  @media (min-width: $bp-t) {
+    margin-bottom: rem(24px);
+  }
 }
 
 .radio {
@@ -28,18 +41,38 @@
   display: flex;
   align-items: center;
   gap: rem(18px);
+  &,
+  * {
+    cursor: pointer;
+  }
 }
 
 input[type="radio"] {
   appearance: none;
   width: rem(31px);
   aspect-ratio: 1 / 1;
-  border: 1px solid #d8e2e7;
+  border: 1px solid var(--radio-border);
   border-radius: 50%;
   &:checked {
-    border: 8px solid var(--radio-border);
-    background-color: var(--radio-bg);
+    border: 8px solid var(--radio-border-checked);
+    background-color: var(--radio-bg-checked);
     transition: all 0.5s ease;
+    &:hover {
+      border: 8px solid var(--radio-border-checked);
+    }
+  }
+  &:hover {
+    border: 1px solid var(--radio-border-hover);
+  }
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: rem(16px);
+  @media (min-width: $bp-t) {
+    flex-direction: row;
+    gap: rem(24px);
   }
 }
 
@@ -49,39 +82,40 @@ input[type="radio"] {
   margin-bottom: rem(8px);
 }
 
-.input-group {
+.imperial-group {
   display: flex;
+  // conditional display of imperial units
 }
 
-.input-wrapper {
+.nr-input {
   border: 1px solid var(--input-border);
   border-radius: rem(12px);
   width: 100%;
   padding: rem(20px) rem(24px);
-  margin-bottom: rem(16px);
   display: flex;
   gap: rem(24px);
   &:focus-within {
     border-color: var(--input-border-active);
   }
-}
-
-input[type="number"] {
-  appearance: textfield;
-  border: none;
-  min-width: 0;
-  color: var(--input-text);
-  &::placeholder {
-    color: var(--input-placeholder);
+  input {
+    appearance: textfield;
+    border: none;
+    min-width: 0;
+    color: var(--input-text);
+    &::placeholder {
+      color: var(--input-placeholder);
+    }
+    &:focus,
+    &:active {
+      outline: none;
+    }
+    & + p {
+      color: var(--input-unit);
+    }
   }
-  &:focus,
-  &:active {
-    outline: none;
+  @media (min-width: $bp-t) {
+    max-width: rem(300px);
   }
-}
-
-.input-unit {
-  color: var(--input-unit);
 }
 
 .result {
@@ -92,8 +126,20 @@ input[type="number"] {
   display: flex;
   flex-direction: column;
   gap: rem(24px);
+  @media (min-width: $bp-t) {
+    border-radius: rem(16px) rem(999px) rem(999px) rem(16px);
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
 }
 
 .result-paragraph {
   margin-bottom: rem(8px);
+}
+
+.result-evaluation {
+  @media (min-width: $bp-t) {
+    max-width: rem(267px);
+  }
 }
