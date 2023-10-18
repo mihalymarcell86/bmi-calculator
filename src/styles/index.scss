@@ -27,6 +27,9 @@ body {
   font-family: Inter, sans-serif;
   color: var(--text);
   padding-bottom: rem(96px);
+  @media (min-width: $bp-d) {
+    padding-bottom: rem(120px);
+  }
 }
 
 //Typography
@@ -42,12 +45,20 @@ h3 {
   font-size: rem(48px);
   letter-spacing: rem(-2.4px);
   line-height: 1.1;
+  @media (min-width: $bp-d) {
+    font-size: rem(64px);
+    letter-spacing: rem(-3.2px);
+  }
 }
 
 .heading-l {
   font-size: rem(32px);
   letter-spacing: rem(-1.6px);
   line-height: 1.1;
+  @media (min-width: $bp-d) {
+    font-size: rem(48px);
+    letter-spacing: rem(-2.4px);
+  }
 }
 
 .heading-m {

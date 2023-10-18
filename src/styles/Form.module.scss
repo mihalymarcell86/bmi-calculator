@@ -2,24 +2,16 @@
 
 .container {
   background-color: var(--card-bg);
-  margin: 0 rem(24px) rem(72px);
   padding: rem(24px);
   border-radius: rem(16px);
   box-shadow: 16px 32px 56px 0px var(--box-shadow);
   @media (min-width: $bp-t) {
-    margin: 0 rem(39px) rem(96px);
     padding: rem(32px);
   }
 }
 
+.heading,
 .form {
-  margin-bottom: rem(24px);
-  @media (min-width: $bp-t) {
-    margin-bottom: rem(32px);
-  }
-}
-
-.heading {
   margin-bottom: rem(24px);
   @media (min-width: $bp-t) {
     margin-bottom: rem(32px);
@@ -32,7 +24,7 @@
   margin-bottom: rem(24px);
   color: var(--heading);
   @media (min-width: $bp-t) {
-    margin-bottom: rem(24px);
+    margin-bottom: rem(32px);
   }
 }
 
@@ -70,16 +62,15 @@ input[type="radio"] {
   display: flex;
   flex-direction: column;
   gap: rem(16px);
+  label {
+    display: block;
+    color: var(--input-label);
+    margin-bottom: rem(8px);
+  }
   @media (min-width: $bp-t) {
     flex-direction: row;
     gap: rem(24px);
   }
-}
-
-.input-label {
-  display: block;
-  color: var(--input-label);
-  margin-bottom: rem(8px);
 }
 
 .imperial-group {
@@ -114,7 +105,10 @@ input[type="radio"] {
     }
   }
   @media (min-width: $bp-t) {
-    max-width: rem(300px);
+    width: rem(300px);
+  }
+  @media (min-width: $bp-d) {
+    width: rem(238px);
   }
 }
 
@@ -141,5 +135,8 @@ input[type="radio"] {
 .result-evaluation {
   @media (min-width: $bp-t) {
     max-width: rem(267px);
+  }
+  @media (min-width: $bp-d) {
+    max-width: rem(206px);
   }
 }

@@ -21,10 +21,7 @@ export default function Form() {
         </div>
         <div className={style["input-group"]}>
           <div>
-            <label
-              htmlFor="height"
-              className={`text-s ${style[`input-label`]}`}
-            >
+            <label htmlFor="height" className={"text-s"}>
               Height
             </label>
             <div className={style["imperial-group"]}>
@@ -42,10 +39,7 @@ export default function Form() {
             </div>
           </div>
           <div>
-            <label
-              htmlFor="weight"
-              className={`text-s ${style[`input-label`]}`}
-            >
+            <label htmlFor="weight" className={"text-s"}>
               Weight
             </label>
             <div className={style["imperial-group"]}>

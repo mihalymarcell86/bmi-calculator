@@ -1,30 +1,66 @@
 @use "util/global" as *;
 
 .header {
-  padding: rem(32px) rem(24px) rem(217px);
-  margin-bottom: rem(-169px);
+  padding-block: rem(32px) rem(568px);
+  margin-bottom: rem(-544px);
   --bg-opacity: 1;
   background-image: $bg-gradient;
   border-radius: 0 0 rem(35px) rem(35px);
-  text-align: center;
   @media (min-width: $bp-t) {
-    padding: rem(32px) rem(43px) rem(326px);
-    margin-bottom: rem(-286px);
+    padding-block: rem(32px) rem(569.64px);
+    margin-bottom: rem(-528px);
+  }
+  @media (min-width: $bp-d) {
+    padding: rem(75px) rem(798px) rem(598px) rem(116px);
+    margin: 0 rem(438px) rem(-570px) rem(24px);
   }
 }
 
 .header-logo {
   width: rem(40px);
   aspect-ratio: 1 / 1;
-  margin: 0 auto rem(24px);
-  @media (min-width: $bp-t) {
-    margin-bottom: rem(40px);
+  margin-inline: auto;
+  @media (min-width: $bp-d) {
+    width: rem(64px);
   }
 }
 
-.header-heading {
+.main-top {
+  display: flex;
+  flex-direction: column;
+  gap: rem(48px);
+  margin: 0 rem(24px) rem(72px);
+  @media (min-width: $bp-t) {
+    gap: rem(40px);
+    margin: 0 rem(43px) rem(96px) rem(39px);
+  }
+  @media (min-width: $bp-d) {
+    flex-direction: row;
+    gap: rem(130px);
+    align-items: center;
+    margin: 0 auto rem(151px);
+    max-width: rem(1160px);
+  }
+}
+
+.block-intro {
+  text-align: center;
+  @media (min-width: $bp-d) {
+    min-width: rem(465px);
+    text-align: left;
+  }
+}
+
+.intro-heading {
   margin: 0 auto rem(24px);
   max-width: rem(325px);
+  @media (min-width: $bp-t) {
+    max-width: rem(350px);
+  }
+  @media (min-width: $bp-d) {
+    margin: 0 0 rem(35px);
+    max-width: none;
+  }
 }
 
 .block-meaning {
@@ -34,6 +70,20 @@
     align-items: center;
     gap: rem(75px);
     margin-bottom: rem(96px);
+  }
+  @media (min-width: $bp-d) {
+    align-items: flex-end;
+    gap: rem(131px);
+    margin-inline: rem(140px);
+    position: relative;
+    &:before {
+      content: url("../assets/images/pattern-curved-line-left.svg");
+      position: absolute;
+      width: rem(85px);
+      height: rem(200px);
+      right: rem(27px);
+      top: rem(-52px);
+    }
   }
 }
 
@@ -48,6 +98,11 @@
     object-position: right;
     //image to be edited and replaced
   }
+  @media (min-width: $bp-d) {
+    width: rem(564px);
+    height: rem(533px);
+    left: auto;
+  }
 }
 
 .section-meaning {
@@ -55,13 +110,25 @@
   @media (min-width: $bp-t) {
     margin-inline: 0 rem(43px);
   }
+  @media (min-width: $bp-d) {
+    margin: 0;
+    & p {
+      margin-bottom: rem(40px);
+      //centered to the image background
+    }
+  }
 }
 
 .subheading {
   margin-bottom: rem(32px);
+  @media (min-width: $bp-d) {
+    margin-bottom: rem(35px);
+  }
 }
 
-.section-factors {
+// --DONE--
+
+.section-tips {
   padding: rem(56px) rem(28.96px) rem(56px) rem(19.04px);
   margin-bottom: rem(72px);
   --bg-opacity: 0.25;
@@ -73,9 +140,16 @@
     padding: rem(60px) rem(43px) rem(60px) rem(39px);
     margin-bottom: rem(96px);
   }
+  @media (min-width: $bp-d) {
+    margin: 0 rem(24px) rem(120px);
+    padding: rem(72px) rem(116px) rem(96px);
+    border-radius: rem(35px);
+    flex-direction: row;
+    gap: rem(32px);
+  }
 }
 
-.factor {
+.tip {
   img {
     width: rem(64px);
     aspect-ratio: 1 / 1;
@@ -83,28 +157,53 @@
     @media (min-width: $bp-t) {
       margin: 0;
     }
+    @media (min-width: $bp-d) {
+      margin-bottom: rem(45px);
+    }
   }
 
   h3 {
     margin-bottom: rem(24px);
   }
-  @media (min-width: $bp-t) {
+
+  @media (min-width: $bp-t) and (max-width: ($bp-d - 1px)) {
     display: flex;
     gap: rem(40px);
     align-items: center;
   }
 }
 
+// --DONE --
+
 .section-limitations {
   margin-inline: rem(19px) rem(29px);
   @media (min-width: $bp-t) {
     margin-inline: rem(39px) rem(43px);
+  }
+  @media (min-width: $bp-d) {
+    margin-inline: rem(140px);
+    position: relative;
   }
 }
 
 .limitations-intro {
   text-align: center;
   margin-bottom: rem(56px);
+  @media (min-width: $bp-d) {
+    position: absolute;
+    left: 0;
+    top: 0;
+    max-width: rem(564px);
+    text-align: left;
+    &:after {
+      content: url("../assets/images/pattern-curved-line-right.svg");
+      width: rem(94px);
+      height: rem(122px);
+      position: absolute;
+      top: calc(100% + rem(67px));
+      left: rem(165px);
+    }
+  }
 }
 
 .limitations-list {
@@ -117,6 +216,12 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+  }
+  @media (min-width: $bp-d) {
+    max-width: rem(961px);
+    margin-left: auto;
+    justify-content: flex-end;
+    gap: rem(32px);
   }
 }
 
@@ -141,5 +246,14 @@
   @media (min-width: $bp-t) {
     padding: rem(32px);
     max-width: rem(335.5px);
+  }
+  @media (min-width: $bp-d) {
+    max-width: rem(365px);
+    &:first-child {
+      margin-inline: rem(497px) rem(99px);
+    }
+    &:last-child {
+      margin-right: rem(199px);
+    }
   }
 }

@@ -1,37 +1,44 @@
-import logo from "./assets/images/logo.svg";
-import image from "./assets/images/image-man-eating.webp";
-import icon_eating from "./assets/images/icon-eating.svg";
-import icon_exercise from "./assets/images/icon-exercise.svg";
-import icon_sleep from "./assets/images/icon-sleep.svg";
-import icon_gender from "./assets/images/icon-gender.svg";
-import icon_age from "./assets/images/icon-age.svg";
-import icon_muscle from "./assets/images/icon-muscle.svg";
-import icon_pregnancy from "./assets/images/icon-pregnancy.svg";
-import icon_race from "./assets/images/icon-race.svg";
-
 import style from "../src/styles/App.module.scss";
 
 import Form from "./assets/components/Form";
+
+const imgURL = "./assets/images";
+const images = import.meta.glob("./assets/images/*.*", {
+  as: "url",
+  eager: true,
+});
 
 function App() {
   return (
     <>
       <header className={style.header}>
-        <img src={logo} alt="logo" className={style["header-logo"]} />
-        <h1 className={`heading-xl ${style["header-heading"]}`}>
-          Body Mass Index Calculator
-        </h1>
-        <p className="text-m">
-          Better understand your weight in relation to your height using our
-          body mass index (BM) calculator. While BMI is not the sole determinant
-          of a healthy weight, it offers a valuable starting point to evaluate
-          your overall health and well-being.
-        </p>
+        <img
+          src={images[`${imgURL}/logo.svg`]}
+          alt="logo"
+          className={style["header-logo"]}
+        />
       </header>
       <main>
-        <Form />
+        <div className={style["main-top"]}>
+          <div className={style["block-intro"]}>
+            <h1 className={`heading-xl ${style["intro-heading"]}`}>
+              Body Mass Index Calculator
+            </h1>
+            <p className="text-m">
+              Better understand your weight in relation to your height using our
+              body mass index (BM) calculator. While BMI is not the sole
+              determinant of a healthy weight, it offers a valuable starting
+              point to evaluate your overall health and well-being.
+            </p>
+          </div>
+          <Form />
+        </div>
         <div className={style[`block-meaning`]}>
-          <img src={image} alt="a man eating sushi" className={style.image} />
+          <img
+            src={images[`${imgURL}/image-man-eating.webp`]}
+            alt="a man eating sushi"
+            className={style.image}
+          />
           <section className={style["section-meaning"]}>
             <h2 className={`heading-l bold ${style.subheading}`}>
               What your BMI result means
@@ -47,9 +54,9 @@ function App() {
             </p>
           </section>
         </div>
-        <section className={style["section-factors"]}>
-          <div className={style.factor}>
-            <img src={icon_eating} alt="" />
+        <section className={style["section-tips"]}>
+          <div className={style.tip}>
+            <img src={images[`${imgURL}/icon-eating.svg`]} alt="" />
             <div>
               <h3 className="heading-m">Healthy eating</h3>
               <p className="text-m">
@@ -58,8 +65,8 @@ function App() {
               </p>
             </div>
           </div>
-          <div className={style.factor}>
-            <img src={icon_exercise} alt="" />
+          <div className={style.tip}>
+            <img src={images[`${imgURL}/icon-exercise.svg`]} alt="" />
             <div>
               <h3 className="heading-m">Regular exercise</h3>
               <p className="text-m">
@@ -68,8 +75,8 @@ function App() {
               </p>
             </div>
           </div>
-          <div className={style.factor}>
-            <img src={icon_sleep} alt="" />
+          <div className={style.tip}>
+            <img src={images[`${imgURL}/icon-sleep.svg`]} alt="" />
             <div>
               <h3 className="heading-m">Adequate sleep</h3>
               <p className="text-m">
@@ -94,7 +101,7 @@ function App() {
           <div className={style["limitations-list"]}>
             <div className={style["limitation-card"]}>
               <div>
-                <img src={icon_gender} alt="" />
+                <img src={images[`${imgURL}/icon-gender.svg`]} alt="" />
                 <h3 className="heading-s">Gender</h3>
               </div>
               <p className="text-m">
@@ -105,7 +112,7 @@ function App() {
             </div>
             <div className={style["limitation-card"]}>
               <div>
-                <img src={icon_age} alt="" />
+                <img src={images[`${imgURL}/icon-age.svg`]} alt="" />
                 <h3 className="heading-s">Age</h3>
               </div>
               <p className="text-m">
@@ -115,7 +122,7 @@ function App() {
             </div>
             <div className={style["limitation-card"]}>
               <div>
-                <img src={icon_muscle} alt="" />
+                <img src={images[`${imgURL}/icon-muscle.svg`]} alt="" />
                 <h3 className="heading-s">Muscle</h3>
               </div>
               <p className="text-m">
@@ -125,7 +132,7 @@ function App() {
             </div>
             <div className={style["limitation-card"]}>
               <div>
-                <img src={icon_pregnancy} alt="" />
+                <img src={images[`${imgURL}/icon-pregnancy.svg`]} alt="" />
                 <h3 className="heading-s">Pregnancy</h3>
               </div>
               <p className="text-m">
@@ -136,7 +143,7 @@ function App() {
             </div>
             <div className={style["limitation-card"]}>
               <div>
-                <img src={icon_race} alt="" />
+                <img src={images[`${imgURL}/icon-race.svg`]} alt="" />
                 <h3 className="heading-s">Race</h3>
               </div>
               <p className="text-m">
