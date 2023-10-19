@@ -34,11 +34,13 @@ function App() {
           <Form />
         </div>
         <div className={style[`block-meaning`]}>
-          <img
-            src={images[`${imgURL}/image-man-eating.webp`]}
-            alt="a man eating sushi"
-            className={style.image}
-          />
+          <div className={style["image-container"]}>
+            <img
+              src={images[`${imgURL}/image-man-eating-removebg.webp`]}
+              alt="a man eating sushi"
+              className={style.image}
+            />
+          </div>
           <section className={style["section-meaning"]}>
             <h2 className={`heading-l bold ${style.subheading}`}>
               What your BMI result means

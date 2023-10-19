@@ -87,21 +87,55 @@
   }
 }
 
-.image {
+.image-container {
+  position: relative;
+  width: 100%;
   margin-bottom: rem(48px);
   @media (min-width: $bp-t) {
     width: rem(319px);
-    height: rem(411px);
+    height: rem(411.09px);
     margin: 0;
-    left: rem(-42px);
-    object-fit: cover;
-    object-position: right;
-    //image to be edited and replaced
   }
   @media (min-width: $bp-d) {
     width: rem(564px);
     height: rem(533px);
+  }
+  &:before {
+    content: "";
+    width: 100%;
+    height: rem(258px);
+    position: absolute;
+    bottom: 0;
+    background-color: var(--image-bg);
+    border-radius: rem(32px);
+    z-index: -1;
+    @media (min-width: $bp-t) {
+      height: rem(299.255px);
+      border-radius: 0 rem(32px) rem(32px) 0;
+      //may not be necessary, if box is shifted out
+    }
+    @media (min-width: $bp-d) {
+      height: rem(388px);
+      border-radius: rem(32px);
+    }
+  }
+}
+
+.image {
+  width: rem(311.17px);
+  height: rem(354.388px);
+  margin-inline: auto;
+  @media (min-width: $bp-t) {
+    width: rem(360.957px);
+    height: rem(411.09px);
+    object-fit: cover;
+    object-position: rem(-42px) 0;
+  }
+  @media (min-width: $bp-d) {
+    width: rem(468px);
+    height: rem(533px);
     left: auto;
+    object-position: 0 0;
   }
 }
 
@@ -109,9 +143,11 @@
   margin-inline: rem(24px);
   @media (min-width: $bp-t) {
     margin-inline: 0 rem(43px);
+    flex: 0 0 rem(331px);
   }
   @media (min-width: $bp-d) {
     margin: 0;
+    flex-basis: rem(465px);
     & p {
       margin-bottom: rem(40px);
       //centered to the image background
