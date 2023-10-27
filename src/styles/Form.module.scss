@@ -2,30 +2,21 @@
 
 .container {
   background-color: var(--card-bg);
-  padding: rem(24px);
+  padding: lerp_clamp($bp-m, rem(24px), $bp-t, rem(32px));
   border-radius: rem(16px);
   box-shadow: 16px 32px 56px 0px var(--box-shadow);
-  @media (min-width: $bp-t) {
-    padding: rem(32px);
-  }
 }
 
 .heading,
-.form {
-  margin-bottom: rem(24px);
-  @media (min-width: $bp-t) {
-    margin-bottom: rem(32px);
-  }
+.form,
+.radio-group {
+  margin-bottom: lerp_clamp($bp-m, rem(24px), $bp-t, rem(32px));
 }
 
 .radio-group {
   display: flex;
   gap: rem(24px);
-  margin-bottom: rem(24px);
   color: var(--heading);
-  @media (min-width: $bp-t) {
-    margin-bottom: rem(32px);
-  }
 }
 
 .radio {
@@ -67,7 +58,7 @@ input[type="radio"] {
     color: var(--input-label);
     margin-bottom: rem(8px);
   }
-  @media (min-width: $bp-t) {
+  @media (min-width: $bp-layout1) {
     flex-direction: row;
     gap: rem(24px);
   }
@@ -92,6 +83,7 @@ input[type="radio"] {
     appearance: textfield;
     border: none;
     min-width: 0;
+    width: 100%;
     color: var(--input-text);
     &::placeholder {
       color: var(--input-placeholder);

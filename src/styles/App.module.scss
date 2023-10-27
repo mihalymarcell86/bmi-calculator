@@ -6,8 +6,7 @@
   --bg-opacity: 1;
   background-image: $bg-gradient;
   border-radius: 0 0 rem(35px) rem(35px);
-  @media (min-width: $bp-t) {
-    padding-block: rem(32px) rem(569.64px);
+  @media (min-width: $bp-layout1) {
     margin-bottom: rem(-528px);
   }
   @media (min-width: $bp-d) {
@@ -29,10 +28,13 @@
   display: flex;
   flex-direction: column;
   gap: rem(48px);
-  margin: 0 rem(24px) rem(72px);
+  margin: {
+    inline: lerp_max($bp-m, rem(24px), $bp-t, rem(41px));
+    bottom: rem(72px);
+  }
   @media (min-width: $bp-t) {
     gap: rem(40px);
-    margin: 0 rem(43px) rem(96px) rem(39px);
+    margin: 0 rem(41px) rem(96px);
   }
   @media (min-width: $bp-d) {
     flex-direction: row;
@@ -54,7 +56,7 @@
 .intro-heading {
   margin: 0 auto rem(24px);
   max-width: rem(325px);
-  @media (min-width: $bp-t) {
+  @media (min-width: $bp-layout1) {
     max-width: rem(350px);
   }
   @media (min-width: $bp-d) {
@@ -122,13 +124,11 @@
 }
 
 .image {
-  width: rem(311.17px);
-  height: rem(354.388px);
+  width: lerp_clamp($bp-m, rem(311.17px), $bp-t, rem(360.957px));
+  height: lerp_clamp($bp-m, rem(354.388px), $bp-t, rem(411.09px));
+  object-fit: cover;
   margin-inline: auto;
   @media (min-width: $bp-t) {
-    width: rem(360.957px);
-    height: rem(411.09px);
-    object-fit: cover;
     object-position: rem(-42px) 0;
   }
   @media (min-width: $bp-d) {
@@ -140,7 +140,7 @@
 }
 
 .section-meaning {
-  margin-inline: rem(24px);
+  margin-inline: lerp_max($bp-m, rem(24px), $bp-t, rem(43px));
   @media (min-width: $bp-t) {
     margin-inline: 0 rem(43px);
     flex: 0 0 rem(331px);
@@ -162,10 +162,12 @@
   }
 }
 
-// --DONE--
-
 .section-tips {
-  padding: rem(56px) rem(28.96px) rem(56px) rem(19.04px);
+  padding: {
+    block: rem(56px);
+    left: lerp_clamp($bp-m, rem(19.04px), $bp-t, rem(39px));
+    right: lerp_clamp($bp-m, rem(28.96px), $bp-t, rem(43px));
+  }
   margin-bottom: rem(72px);
   --bg-opacity: 0.25;
   background-image: $bg-gradient;
@@ -173,7 +175,9 @@
   flex-direction: column;
   gap: rem(40px);
   @media (min-width: $bp-t) {
-    padding: rem(60px) rem(43px) rem(60px) rem(39px);
+    padding: {
+      block: rem(60px);
+    }
     margin-bottom: rem(96px);
   }
   @media (min-width: $bp-d) {
@@ -190,7 +194,7 @@
     width: rem(64px);
     aspect-ratio: 1 / 1;
     margin-bottom: rem(32px);
-    @media (min-width: $bp-t) {
+    @media (min-width: $bp-layout1) {
       margin: 0;
     }
     @media (min-width: $bp-d) {
@@ -202,20 +206,15 @@
     margin-bottom: rem(24px);
   }
 
-  @media (min-width: $bp-t) and (max-width: ($bp-d - 1px)) {
+  @media (min-width: $bp-layout1) and (max-width: ($bp-d - 1px)) {
     display: flex;
     gap: rem(40px);
     align-items: center;
   }
 }
 
-// --DONE --
-
 .section-limitations {
-  margin-inline: rem(19px) rem(29px);
-  @media (min-width: $bp-t) {
-    margin-inline: rem(39px) rem(43px);
-  }
+  margin-inline: lerp_clamp($bp-m, rem(24px), $bp-t, rem(41px));
   @media (min-width: $bp-d) {
     margin-inline: rem(140px);
     position: relative;
@@ -245,10 +244,9 @@
 .limitations-list {
   display: flex;
   flex-direction: column;
-  gap: rem(16px);
-  @media (min-width: $bp-t) {
+  row-gap: lerp_clamp($bp-m, rem(16px), $bp-t, rem(24px));
+  @media (min-width: $bp-layout1) {
     column-gap: rem(15px);
-    row-gap: rem(24px);
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
@@ -265,7 +263,7 @@
   background-color: var(--card-bg);
   box-shadow: 16px 32px 56px 0px var(--box-shadow);
   border-radius: rem(16px);
-  padding: rem(24px);
+  padding: lerp_clamp($bp-m, rem(24px), $bp-t, rem(32px));
 
   img {
     width: rem(32px);
@@ -279,10 +277,10 @@
     margin-bottom: rem(16px);
   }
 
-  @media (min-width: $bp-t) {
-    padding: rem(32px);
-    max-width: rem(335.5px);
+  @media (min-width: $bp-layout1) {
+    max-width: lerp_clamp($bp-layout1, rem(255px), $bp-t, rem(335.5px));
   }
+
   @media (min-width: $bp-d) {
     max-width: rem(365px);
     &:first-child {
