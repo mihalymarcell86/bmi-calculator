@@ -45,9 +45,11 @@ h3 {
   font-size: rem(48px);
   letter-spacing: rem(-2.4px);
   line-height: 1.1;
-  @media (min-width: $bp-d) {
-    font-size: rem(64px);
-    letter-spacing: rem(-3.2px);
+  margin-bottom: rem(24px);
+  @media (min-width: $bp-t) {
+    font-size: lerp_min($bp-t, rem(48px), $bp-d, rem(64px));
+    letter-spacing: lerp_max($bp-t, rem(-2.4px), $bp-d, rem(-3.2px));
+    margin-bottom: lerp_min($bp-t, rem(24px), $bp-d, rem(35px));
   }
 }
 
@@ -55,9 +57,11 @@ h3 {
   font-size: rem(32px);
   letter-spacing: rem(-1.6px);
   line-height: 1.1;
-  @media (min-width: $bp-d) {
-    font-size: rem(48px);
-    letter-spacing: rem(-2.4px);
+  margin-bottom: rem(32px);
+  @media (min-width: $bp-t) {
+    font-size: lerp_clamp($bp-t, rem(32px), $bp-layout2, rem(48px));
+    letter-spacing: lerp_clamp($bp-t, rem(-1.6px), $bp-layout2, rem(-2.4px));
+    margin-bottom: lerp_clamp($bp-t, rem(32px), $bp-layout2, rem(35px));
   }
 }
 

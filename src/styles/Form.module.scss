@@ -5,6 +5,9 @@
   padding: lerp_clamp($bp-m, rem(24px), $bp-t, rem(32px));
   border-radius: rem(16px);
   box-shadow: 16px 32px 56px 0px var(--box-shadow);
+  @media (min-width: $bp-layout2) {
+    min-width: lerp_min($bp-layout2, rem(535px), $bp-d, rem(564px));
+  }
 }
 
 .heading,
@@ -96,12 +99,6 @@ input[type="radio"] {
       color: var(--input-unit);
     }
   }
-  @media (min-width: $bp-t) {
-    width: rem(300px);
-  }
-  @media (min-width: $bp-d) {
-    width: rem(238px);
-  }
 }
 
 .result {
@@ -112,7 +109,7 @@ input[type="radio"] {
   display: flex;
   flex-direction: column;
   gap: rem(24px);
-  @media (min-width: $bp-t) {
+  @media (min-width: $bp-layout1) {
     border-radius: rem(16px) rem(999px) rem(999px) rem(16px);
     flex-direction: row;
     align-items: center;
@@ -122,13 +119,14 @@ input[type="radio"] {
 
 .result-paragraph {
   margin-bottom: rem(8px);
+  min-width: rem(100px);
 }
 
 .result-evaluation {
-  @media (min-width: $bp-t) {
+  @media (min-width: $bp-layout1) {
     max-width: rem(267px);
   }
-  @media (min-width: $bp-d) {
+  @media (min-width: $bp-layout2) {
     max-width: rem(206px);
   }
 }

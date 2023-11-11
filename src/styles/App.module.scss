@@ -2,15 +2,17 @@
 
 .header {
   padding-block: rem(32px) rem(568px);
-  margin-bottom: rem(-544px);
+  margin-bottom: lerp_clamp($bp-m, rem(-544px), $bp-t, rem(-528px));
   --bg-opacity: 1;
   background-image: $bg-gradient;
   border-radius: 0 0 rem(35px) rem(35px);
-  @media (min-width: $bp-layout1) {
-    margin-bottom: rem(-528px);
-  }
-  @media (min-width: $bp-d) {
-    padding: rem(75px) rem(798px) rem(598px) rem(116px);
+  @media (min-width: $bp-layout2) {
+    padding: {
+      top: rem(75px);
+      bottom: lerp_max($bp-t, rem(622px), $bp-d, rem(598px));
+      //adjused to logo size
+      left: lerp_min($bp-layout2, rem(16px), $bp-d, rem(116px));
+    }
     margin: 0 rem(438px) rem(-570px) rem(24px);
   }
 }
@@ -19,8 +21,11 @@
   width: rem(40px);
   aspect-ratio: 1 / 1;
   margin-inline: auto;
-  @media (min-width: $bp-d) {
-    width: rem(64px);
+  @media (min-width: $bp-t) {
+    width: lerp_clamp($bp-t, rem(40px), $bp-d, rem(64px));
+  }
+  @media (min-width: $bp-layout2) {
+    margin: 0;
   }
 }
 
@@ -34,34 +39,24 @@
   }
   @media (min-width: $bp-t) {
     gap: rem(40px);
-    margin: 0 rem(41px) rem(96px);
+    margin: {
+      inline: lerp($bp-t, rem(41px), $bp-d, rem(141px));
+      bottom: rem(96px);
+    }
   }
-  @media (min-width: $bp-d) {
+  @media (min-width: $bp-layout2) {
     flex-direction: row;
-    gap: rem(130px);
+    gap: lerp_min($bp-layout2, rem(50px), $bp-d, rem(130px));
     align-items: center;
     margin: 0 auto rem(151px);
-    max-width: rem(1160px);
+    max-width: lerp_min($bp-layout2, rem(1020px), $bp-d, rem(1160px));
   }
 }
 
 .block-intro {
   text-align: center;
-  @media (min-width: $bp-d) {
-    min-width: rem(465px);
+  @media (min-width: $bp-layout2) {
     text-align: left;
-  }
-}
-
-.intro-heading {
-  margin: 0 auto rem(24px);
-  max-width: rem(325px);
-  @media (min-width: $bp-layout1) {
-    max-width: rem(350px);
-  }
-  @media (min-width: $bp-d) {
-    margin: 0 0 rem(35px);
-    max-width: none;
   }
 }
 
@@ -73,10 +68,10 @@
     gap: rem(75px);
     margin-bottom: rem(96px);
   }
-  @media (min-width: $bp-d) {
+  @media (min-width: $bp-layout2) {
     align-items: flex-end;
-    gap: rem(131px);
-    margin-inline: rem(140px);
+    gap: lerp_min($bp-layout2, rem(50px), $bp-d, rem(131px));
+    margin-inline: lerp_min($bp-layout2, rem(40px), $bp-d, rem(140px));
     position: relative;
     &:before {
       content: url("../assets/images/pattern-curved-line-left.svg");
@@ -91,14 +86,17 @@
 
 .image-container {
   position: relative;
-  width: 100%;
+  width: auto;
   margin-bottom: rem(48px);
+  @media (min-width: $bp-layout1) {
+    margin-inline: lerp_clamp($bp-layout1, rem(0px), $bp-t, rem(41px));
+  }
   @media (min-width: $bp-t) {
-    width: rem(319px);
-    height: rem(411.09px);
+    width: lerp_clamp($bp-t, rem(319px), $bp-layout2, rem(470px));
+    height: lerp_clamp($bp-t, rem(411.09px), $bp-layout2, rem(533px));
     margin: 0;
   }
-  @media (min-width: $bp-d) {
+  @media (min-width: $bp-layout2) {
     width: rem(564px);
     height: rem(533px);
   }
@@ -112,11 +110,10 @@
     border-radius: rem(32px);
     z-index: -1;
     @media (min-width: $bp-t) {
-      height: rem(299.255px);
+      height: lerp_clamp($bp-t, rem(299.255px), $bp-layout2, rem(387px));
       border-radius: 0 rem(32px) rem(32px) 0;
-      //may not be necessary, if box is shifted out
     }
-    @media (min-width: $bp-d) {
+    @media (min-width: $bp-layout2) {
       height: rem(388px);
       border-radius: rem(32px);
     }
@@ -130,43 +127,40 @@
   margin-inline: auto;
   @media (min-width: $bp-t) {
     object-position: rem(-42px) 0;
+    width: lerp_clamp($bp-t, rem(360.957px), $bp-layout2, rem(468px));
+    height: lerp_clamp($bp-t, rem(411.09px), $bp-layout2, rem(533px));
+    margin-inline: unset;
   }
-  @media (min-width: $bp-d) {
+  @media (min-width: $bp-layout2) {
     width: rem(468px);
     height: rem(533px);
     left: auto;
     object-position: 0 0;
+    margin-inline: auto;
   }
 }
 
 .section-meaning {
   margin-inline: lerp_max($bp-m, rem(24px), $bp-t, rem(43px));
   @media (min-width: $bp-t) {
-    margin-inline: 0 rem(43px);
-    flex: 0 0 rem(331px);
-  }
-  @media (min-width: $bp-d) {
-    margin: 0;
-    flex-basis: rem(465px);
-    & p {
-      margin-bottom: rem(40px);
-      //centered to the image background
+    margin: {
+      left: 0;
+      right: lerp_clamp($bp-t, rem(43px), $bp-layout2, rem(90px));
     }
+    flex: 1 0 rem(331px);
   }
-}
-
-.subheading {
-  margin-bottom: rem(32px);
-  @media (min-width: $bp-d) {
-    margin-bottom: rem(35px);
+  @media (min-width: $bp-layout2) {
+    margin: 0;
+    flex: 0 0 rem(465px);
+    padding-bottom: rem(40px);
   }
 }
 
 .section-tips {
   padding: {
     block: rem(56px);
-    left: lerp_clamp($bp-m, rem(19.04px), $bp-t, rem(39px));
-    right: lerp_clamp($bp-m, rem(28.96px), $bp-t, rem(43px));
+    left: lerp_clamp($bp-m, rem(19.04px), $bp-t, rem(41px));
+    right: lerp_clamp($bp-m, rem(28.96px), $bp-t, rem(41px));
   }
   margin-bottom: rem(72px);
   --bg-opacity: 0.25;
@@ -177,15 +171,20 @@
   @media (min-width: $bp-t) {
     padding: {
       block: rem(60px);
+      inline: lerp_min($bp-t, rem(41px), $bp-layout2, rem(90px));
     }
     margin-bottom: rem(96px);
   }
-  @media (min-width: $bp-d) {
+  @media (min-width: $bp-layout2) {
     margin: 0 rem(24px) rem(120px);
-    padding: rem(72px) rem(116px) rem(96px);
+    padding: {
+      top: rem(72px);
+      inline: lerp_min($bp-layout2, rem(32px), $bp-d, rem(116px));
+      bottom: rem(96px);
+    }
     border-radius: rem(35px);
     flex-direction: row;
-    gap: rem(32px);
+    gap: lerp_min($bp-layout2, rem(20px), $bp-d, rem(32px));
   }
 }
 
@@ -195,9 +194,9 @@
     aspect-ratio: 1 / 1;
     margin-bottom: rem(32px);
     @media (min-width: $bp-layout1) {
-      margin: 0;
+      margin-bottom: 0;
     }
-    @media (min-width: $bp-d) {
+    @media (min-width: $bp-layout2) {
       margin-bottom: rem(45px);
     }
   }
@@ -206,25 +205,32 @@
     margin-bottom: rem(24px);
   }
 
-  @media (min-width: $bp-layout1) and (max-width: ($bp-d - 1px)) {
+  @media (min-width: $bp-layout1) AND (max-width: ($bp-layout2 - 0.0001px)) {
     display: flex;
-    gap: rem(40px);
+    gap: lerp_clamp($bp-layout1, rem(40px), $bp-layout2, rem(70px));
     align-items: center;
   }
 }
 
 .section-limitations {
   margin-inline: lerp_clamp($bp-m, rem(24px), $bp-t, rem(41px));
-  @media (min-width: $bp-d) {
-    margin-inline: rem(140px);
+  @media (min-width: $bp-t) {
+    margin-inline: lerp_clamp($bp-t, rem(41px), $bp-layout2, rem(90px));
+  }
+  @media (min-width: $bp-layout2) {
+    margin-inline: lerp_clamp($bp-layout2, rem(40px), $bp-d, rem(140px));
     position: relative;
+  }
+  @media (min-width: $bp-d) {
+    margin-inline: auto;
+    max-width: rem(1160px);
   }
 }
 
 .limitations-intro {
   text-align: center;
   margin-bottom: rem(56px);
-  @media (min-width: $bp-d) {
+  @media (min-width: $bp-layout2) {
     position: absolute;
     left: 0;
     top: 0;
@@ -236,7 +242,7 @@
       height: rem(122px);
       position: absolute;
       top: calc(100% + rem(67px));
-      left: rem(165px);
+      left: lerp_clamp($bp-layout2, rem(80px), $bp-d, rem(165px));
     }
   }
 }
@@ -251,10 +257,10 @@
     flex-wrap: wrap;
     justify-content: center;
   }
-  @media (min-width: $bp-d) {
+  @media (min-width: $bp-layout2) {
     max-width: rem(961px);
-    margin-left: auto;
     justify-content: flex-end;
+    margin-left: auto;
     gap: rem(32px);
   }
 }
@@ -278,16 +284,20 @@
   }
 
   @media (min-width: $bp-layout1) {
-    max-width: lerp_clamp($bp-layout1, rem(255px), $bp-t, rem(335.5px));
+    flex: 1 0 lerp_clamp($bp-layout1, rem(255px), $bp-t, rem(335.5px));
+    max-width: lerp_clamp($bp-layout1, rem(300px), $bp-t, rem(365px));
   }
 
-  @media (min-width: $bp-d) {
+  @media (min-width: $bp-layout2) {
     max-width: rem(365px);
     &:first-child {
-      margin-inline: rem(497px) rem(99px);
+      margin: {
+        left: 100%;
+        right: lerp_clamp($bp-layout2, rem(40px), $bp-d, rem(99px));
+      }
     }
     &:last-child {
-      margin-right: rem(199px);
+      margin-right: lerp_clamp($bp-layout2, rem(100px), $bp-d, rem(199px));
     }
   }
 }

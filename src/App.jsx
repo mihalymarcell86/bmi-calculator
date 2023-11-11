@@ -21,8 +21,10 @@ function App() {
       <main>
         <div className={style["main-top"]}>
           <div className={style["block-intro"]}>
-            <h1 className={`heading-xl ${style["intro-heading"]}`}>
-              Body Mass Index Calculator
+            <h1 className="heading-xl">
+              Body Mass
+              <br />
+              Index Calculator
             </h1>
             <p className="text-m">
               Better understand your weight in relation to your height using our
@@ -42,9 +44,7 @@ function App() {
             />
           </div>
           <section className={style["section-meaning"]}>
-            <h2 className={`heading-l bold ${style.subheading}`}>
-              What your BMI result means
-            </h2>
+            <h2 className="heading-l">What your BMI result means</h2>
             <p className="text-m">
               A BMI range of 18.5 to 24.9 is considered a &#39;healthy
               weight.&#39; Maintaining a healthy weight may lower your chances
@@ -90,9 +90,7 @@ function App() {
         </section>
         <section className={style["section-limitations"]}>
           <div className={style["limitations-intro"]}>
-            <h2 className={`heading-l ${style.subheading}`}>
-              Limitations of BMI
-            </h2>
+            <h2 className="heading-l">Limitations of BMI</h2>
             <p className="text-m">
               Although BMI is often a practical indicator of healthy weight, it
               is not suited for every person. Specific groups should carefully
