@@ -56,49 +56,24 @@ input[type="radio"] {
   display: flex;
   flex-direction: column;
   gap: rem(16px);
-  label {
-    display: block;
-    color: var(--input-label);
-    margin-bottom: rem(8px);
-  }
+}
+
+.input-group--metric {
   @media (min-width: $bp-layout1) {
     flex-direction: row;
     gap: rem(24px);
   }
 }
 
-.imperial-group {
-  display: flex;
-  // conditional display of imperial units
+.input-label {
+  display: block;
+  color: var(--input-label);
+  margin-bottom: rem(8px);
 }
 
-.nr-input {
-  border: 1px solid var(--input-border);
-  border-radius: rem(12px);
-  width: 100%;
-  padding: rem(20px) rem(24px);
+.imperial-group {
   display: flex;
-  gap: rem(24px);
-  &:focus-within {
-    border-color: var(--input-border-active);
-  }
-  input {
-    appearance: textfield;
-    border: none;
-    min-width: 0;
-    width: 100%;
-    color: var(--input-text);
-    &::placeholder {
-      color: var(--input-placeholder);
-    }
-    &:focus,
-    &:active {
-      outline: none;
-    }
-    & + p {
-      color: var(--input-unit);
-    }
-  }
+  gap: lerp_clamp($bp-m, rem(16px), $bp-layout1, rem(24px));
 }
 
 .result {

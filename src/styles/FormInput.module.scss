@@ -1,0 +1,30 @@
+@use "util/global" as *;
+
+.nr-input {
+  border: 1px solid var(--input-border);
+  border-radius: rem(12px);
+  width: 100%;
+  padding: rem(20px) rem(24px);
+  display: flex;
+  gap: rem(24px);
+  &:focus-within {
+    border-color: var(--input-border-active);
+  }
+  input {
+    appearance: textfield;
+    border: none;
+    min-width: 0;
+    width: 100%;
+    color: var(--input-text);
+    &::placeholder {
+      color: var(--input-placeholder);
+    }
+    &:focus,
+    &:active {
+      outline: none;
+    }
+    & + p {
+      color: var(--input-unit);
+    }
+  }
+}

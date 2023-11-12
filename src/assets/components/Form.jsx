@@ -1,59 +1,74 @@
+import { useState } from "react";
+import FormInput from "./FormInput";
+
 import style from "../../styles/Form.module.scss";
 
 export default function Form() {
+  const [isMetric, setIsMetric] = useState(true);
+
+  function handleRadio() {
+    setIsMetric((prev) => !prev);
+  }
+
   return (
     <section className={style.container}>
       <h1 className={`heading-m ${style.heading}`}>Enter your details below</h1>
       <form className={style.form}>
         <div className={style["radio-group"]}>
           <div className={style.radio}>
-            <input type="radio" name="unit" id="metric" value="metric" />
+            <input
+              type="radio"
+              name="unit"
+              id="metric"
+              checked={isMetric}
+              onChange={handleRadio}
+            />
             <label htmlFor="metric" className="text-m bold">
               Metric
             </label>
           </div>
           <div className={style.radio}>
-            <input type="radio" name="unit" id="imperial" value="imperial" />
+            <input
+              type="radio"
+              name="unit"
+              id="imperial"
+              checked={!isMetric}
+              onChange={handleRadio}
+            />
             <label htmlFor="imperial" className="text-m bold">
               Imperial
             </label>
           </div>
         </div>
-        <div className={style["input-group"]}>
+        <div
+          className={`${style["input-group"]} ${
+            isMetric ? style["input-group--metric"] : ""
+          }`}
+        >
           <div>
-            <label htmlFor="height" className={"text-s"}>
-              Height
-            </label>
+            <p className={`${style["input-label"]} text-s`}>Height</p>
             <div className={style["imperial-group"]}>
-              <div className={style["nr-input"]}>
-                <input
-                  type="number"
-                  id="height"
-                  inputMode="numeric"
-                  placeholder="0"
-                  className="heading-m bold"
-                />
-                <p className="heading-m bold">cm</p>
-              </div>
-              {/* second input field (conditional)*/}
+              {isMetric ? (
+                <FormInput unit="cm" />
+              ) : (
+                <>
+                  <FormInput unit="ft" />
+                  <FormInput unit="in" />
+                </>
+              )}
             </div>
           </div>
           <div>
-            <label htmlFor="weight" className={"text-s"}>
-              Weight
-            </label>
+            <p className={`${style["input-label"]} text-s`}>Weight</p>
             <div className={style["imperial-group"]}>
-              <div className={style["nr-input"]}>
-                <input
-                  type="number"
-                  id="weight"
-                  inputMode="numeric"
-                  placeholder="0"
-                  className="heading-m bold"
-                />
-                <p className="heading-m bold">kg</p>
-              </div>
-              {/* second input field (conditional)*/}
+              {isMetric ? (
+                <FormInput unit="kg" />
+              ) : (
+                <>
+                  <FormInput unit="st" />
+                  <FormInput unit="lbs" />
+                </>
+              )}
             </div>
           </div>
         </div>
