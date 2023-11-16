@@ -6,12 +6,12 @@
   width: 100%;
   padding: rem(20px) rem(24px);
   display: flex;
-  gap: rem(24px);
+  justify-content: space-between;
+  gap: rem(12px);
   &:focus-within {
     border-color: var(--input-border-active);
   }
   input {
-    appearance: textfield;
     border: none;
     min-width: 0;
     width: 100%;

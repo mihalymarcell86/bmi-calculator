@@ -1,6 +1,7 @@
 import style from "../src/styles/App.module.scss";
 
 import Form from "./assets/components/Form";
+import InputContextProvider from "./assets/context/InputContext";
 
 const imgURL = "./assets/images";
 const images = import.meta.glob("./assets/images/*.*", {
@@ -33,7 +34,9 @@ function App() {
               point to evaluate your overall health and well-being.
             </p>
           </div>
-          <Form />
+          <InputContextProvider>
+            <Form />
+          </InputContextProvider>
         </div>
         <div className={style[`block-meaning`]}>
           <div className={style["image-container"]}>

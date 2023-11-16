@@ -1,5 +1,6 @@
 import { useState } from "react";
 import FormInput from "./FormInput";
+import FormResult from "./FormResult";
 
 import style from "../../styles/Form.module.scss";
 
@@ -73,29 +74,7 @@ export default function Form() {
           </div>
         </div>
       </form>
-      <div className={style.result}>
-        <div>
-          <p className={`text-m bold ${style["result-paragraph"]}`}>
-            Your BMI is...
-          </p>
-          <output
-            htmlFor="metric imperial height weight"
-            className="heading-xl bold"
-          >
-            23.4 {/* dummy */}
-            {/* <!-- add score --> */}
-          </output>
-        </div>
-        <div>
-          <p className={`text-s ${style[`result-evaluation`]}`}>
-            Your BMI suggests you&apos;re a healthy weight
-            {/* <!-- add classification -->*/}. Your ideal weight is between{" "}
-            <strong className="bold">
-              63.3kgs - 85.2kgs{/* <!-- add range --> */}.
-            </strong>
-          </p>
-        </div>
-      </div>
+      <FormResult isMetric={isMetric} />
     </section>
   );
 }

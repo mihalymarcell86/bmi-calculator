@@ -70,6 +70,8 @@ CSS Flex - row & column gap both exist (usecase: flex wrap)
 
 Input fields don't work well together with flexbox
 
+input type = 'number' - strange behavior (allows alphabetic input, but doesn't pass on value)
+
 ### Continued development
 
 Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.

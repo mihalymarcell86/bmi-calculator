@@ -1,0 +1,31 @@
+@use "util/global" as *;
+
+.result {
+  color: var(--result-text);
+  background-image: $result-bg-gradient;
+  padding: rem(32px);
+  border-radius: rem(16px);
+  display: flex;
+  flex-direction: column;
+  gap: rem(24px);
+  @media (min-width: $bp-layout1) {
+    border-radius: rem(16px) rem(999px) rem(999px) rem(16px);
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.result-paragraph {
+  margin-bottom: rem(8px);
+  min-width: rem(100px);
+}
+
+.result-evaluation {
+  @media (min-width: $bp-layout1) {
+    max-width: rem(267px);
+  }
+  @media (min-width: $bp-layout2) {
+    max-width: rem(206px);
+  }
+}
