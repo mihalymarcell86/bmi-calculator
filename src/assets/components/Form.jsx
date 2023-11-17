@@ -1,6 +1,7 @@
 import { useState } from "react";
 import FormInput from "./FormInput";
 import FormResult from "./FormResult";
+import PropTypes from "prop-types";
 
 import style from "../../styles/Form.module.scss";
 
@@ -11,35 +12,35 @@ export default function Form() {
     setIsMetric((prev) => !prev);
   }
 
+  function RadioButton({ label, checked }) {
+    return (
+      <div className={style.radio}>
+        <input
+          type="radio"
+          name="unit"
+          id={label.toLowerCase()}
+          checked={checked}
+          onChange={handleRadio}
+        />
+        <label htmlFor={label.toLowerCase()} className="text-m bold">
+          {label}
+        </label>
+      </div>
+    );
+  }
+
+  RadioButton.propTypes = {
+    label: PropTypes.string.isRequired,
+    checked: PropTypes.bool.isRequired,
+  };
+
   return (
     <section className={style.container}>
       <h1 className={`heading-m ${style.heading}`}>Enter your details below</h1>
       <form className={style.form}>
         <div className={style["radio-group"]}>
-          <div className={style.radio}>
-            <input
-              type="radio"
-              name="unit"
-              id="metric"
-              checked={isMetric}
-              onChange={handleRadio}
-            />
-            <label htmlFor="metric" className="text-m bold">
-              Metric
-            </label>
-          </div>
-          <div className={style.radio}>
-            <input
-              type="radio"
-              name="unit"
-              id="imperial"
-              checked={!isMetric}
-              onChange={handleRadio}
-            />
-            <label htmlFor="imperial" className="text-m bold">
-              Imperial
-            </label>
-          </div>
+          <RadioButton label="Metric" checked={isMetric} />
+          <RadioButton label="Imperial" checked={!isMetric} />
         </div>
         <div
           className={`${style["input-group"]} ${

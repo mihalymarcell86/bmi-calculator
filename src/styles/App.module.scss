@@ -261,7 +261,8 @@
     max-width: rem(961px);
     justify-content: flex-end;
     margin-left: auto;
-    gap: rem(32px);
+    row-gap: rem(24px);
+    column-gap: rem(32px);
   }
 }
 
@@ -294,6 +295,7 @@
       margin: {
         left: 100%;
         right: lerp_clamp($bp-layout2, rem(40px), $bp-d, rem(99px));
+        bottom: rem(8px);
       }
     }
     &:last-child {

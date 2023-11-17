@@ -48,12 +48,18 @@ export default function FormOutput({ isMetric }) {
             <p className={`text-m bold ${style["result-paragraph"]}`}>
               Your BMI is...
             </p>
-            <output
-              htmlFor="metric imperial height weight"
-              className="heading-xl bold"
-            >
-              {BMI.toFixed(1)}
-            </output>
+            {isMetric ? (
+              <output htmlFor="metric kg cm" className="heading-xl bold">
+                {BMI.toFixed(1)}
+              </output>
+            ) : (
+              <output
+                htmlFor="imperial st lbs ft in"
+                className="heading-xl bold"
+              >
+                {BMI.toFixed(1)}
+              </output>
+            )}
           </div>
           <div>
             <p className={`text-s ${style[`result-evaluation`]}`}>

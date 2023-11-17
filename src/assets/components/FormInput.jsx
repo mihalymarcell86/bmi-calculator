@@ -19,7 +19,8 @@ export default function FormInput({ unit }) {
   }
 
   function handleBlur({ target: { value } }) {
-    dispatch({ type: "CONVERT", payload: { value: value, unit: unit } });
+    if ((unit === "in" && value > 11) || (unit === "lbs" && value > 13))
+      dispatch({ type: "CONVERT", payload: { value: value, unit: unit } });
   }
 
   return (
@@ -28,6 +29,7 @@ export default function FormInput({ unit }) {
         inputMode="numeric"
         placeholder="0"
         className="heading-m bold"
+        id={unit}
         onChange={handleChange}
         onBlur={handleBlur}
         value={state[unit] > 0 ? Number(state[unit]).toFixed() : ""}
