@@ -36,7 +36,7 @@ export default function Form() {
 
   return (
     <section className={style.container}>
-      <h1 className={`heading-m ${style.heading}`}>Enter your details below</h1>
+      <h2 className={`heading-m ${style.heading}`}>Enter your details below</h2>
       <form className={style.form}>
         <div className={style["radio-group"]}>
           <RadioButton label="Metric" checked={isMetric} />
