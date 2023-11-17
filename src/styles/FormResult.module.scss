@@ -1,13 +1,18 @@
 @use "util/global" as *;
 
 .result {
-  color: var(--result-text);
   background-image: $result-bg-gradient;
   padding: rem(32px);
   border-radius: rem(16px);
   display: flex;
   flex-direction: column;
   gap: rem(24px);
+  * {
+    color: var(--result-text);
+  }
+  h2 {
+    margin-bottom: rem(16px);
+  }
   @media (min-width: $bp-layout1) {
     border-radius: rem(16px) rem(999px) rem(999px) rem(16px);
     flex-direction: row;

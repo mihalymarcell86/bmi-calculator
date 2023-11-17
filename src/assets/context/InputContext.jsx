@@ -4,6 +4,7 @@ import {
   heightToMetric,
   weightToImperial,
   weightToMetric,
+  convertImperial,
 } from "../utilities/imperial-coverter";
 import PropTypes from "prop-types";
 
@@ -48,24 +49,19 @@ function reducer(state, { type, payload }) {
     case "CONVERT": {
       switch (unit) {
         case "in": {
-          const IN_in_FT = 12;
-          return {
-            ...state,
-            ft: +state.ft + Math.floor(value / IN_in_FT),
-            in: value % IN_in_FT,
-          };
+          const [ft, inch] = convertImperial(value, unit);
+          newState = { ft: +state.ft + ft, in: inch };
+          break;
         }
         case "lbs": {
-          const LB_in_ST = 14;
-          return {
-            ...state,
-            st: +state.st + Math.floor(value / LB_in_ST),
-            lbs: value % LB_in_ST,
-          };
+          const [st, lbs] = convertImperial(value, unit);
+          newState = { st: +state.st + st, lbs: lbs };
+          break;
         }
         default:
           return state;
       }
+      break;
     }
     default:
       throw new Error("Unknown action type.");
