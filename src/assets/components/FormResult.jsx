@@ -86,7 +86,7 @@ export default function FormOutput({ isMetric }) {
                       healthy_max_imperial[1] > 0
                         ? healthy_max_imperial[1].toFixed() + "lbs"
                         : ""
-                    }`}
+                    }.`}
               </strong>
             </p>
           </div>
